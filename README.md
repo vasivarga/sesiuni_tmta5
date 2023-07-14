@@ -1,1 +1,1 @@
-# sesiuni_tmta5
+# Repo grupa tmta5
