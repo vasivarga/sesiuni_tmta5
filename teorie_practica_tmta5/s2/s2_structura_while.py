@@ -36,6 +36,8 @@ while c <= 10:
     print(f"Numarul curent este: {c}")
     c += 1
 
+print("-----------------------------------------")
+
 # ITERATIA 1:
 # c = 1
 # while 1 <= 10 => TRUE => se executa codul din bucla
@@ -78,6 +80,8 @@ while i <= 101:
     print(f"Dalmatianul curent are numarul: {i}")
     i += 1
 
+print("-----------------------------------------")
+
 # Exercitiu 3: Vreau sa printez suma numerelor de la 1 la 10
 # Observam ca e langa variabila j, am declarat si variabila suma, care initial trebuie sa fie egala cu 0
 j = 1
@@ -87,12 +91,16 @@ while j <= 10:
     j += 1
 print(f"Suma numerelor este: {suma}")
 
+print("-----------------------------------------")
+
 # Exercitiu 4: Vreau sa parcurg o lista de elemente si sa printez fiecare element
 lista_studenti = ["Ramona", "Catalin", "Laurentiu", "George", "Ionut", "Dorin", "Catalin"]
 i = 0
 while i < len(lista_studenti):
     print(f"Studentul curent este: {lista_studenti[i]}")
     i += 1
+
+print("-----------------------------------------")
 
 # Exercitiu 5: Vreau sa il inlocuiesc pe Dorin cu Andreea
 i = 0
@@ -102,6 +110,8 @@ while i < len(lista_studenti):
     i += 1
 print(f"Lista finala dupa ce Dorin a fost inlocuit este: {lista_studenti}")
 
+print("-----------------------------------------")
+
 # Exercitiu 5 - break: Vreau sa il inlocuiesc doar pe PRIMUL Catalin din lista cu Dorin
 i = 0
 while i < len(lista_studenti):
@@ -110,5 +120,7 @@ while i < len(lista_studenti):
         break
     i += 1
 print(f"Lista dupa inlocuirea lui Catalin : {lista_studenti}")
+
+print("-----------------------------------------")
 
 # break se foloseste pentru a termina executia restului de iteratii indiferent daca conditia mai este indeplinita sau nu
