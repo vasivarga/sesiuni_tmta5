@@ -52,7 +52,7 @@ if nr_3 < nr_4:
 elif nr_3 > nr_4:
     print(f"Am intrat pe ramura ELSE-I: {nr_3} este mai mare decat {nr_4}")
 else:
-    print(f"Am intrat pe ramura ELSEȘ: {nr_3} este egal cu {nr_4}")
+    print(f"Am intrat pe ramura ELSE: {nr_3} este egal cu {nr_4}")
 
 # CONCEPTUL NESTED IF (ÎMBRICAT, ADICĂ IF ÎN IF)
 
