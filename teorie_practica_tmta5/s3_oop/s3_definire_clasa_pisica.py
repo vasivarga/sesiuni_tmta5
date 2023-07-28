@@ -3,6 +3,7 @@ class Pisica:
     nume = None
     culoare = None
 
+    # In acest constructor facem sa fie obligatorie specificarea numelui pisicii in momentul declararii
     def __init__(self, nume):
         self.nume = nume
 
