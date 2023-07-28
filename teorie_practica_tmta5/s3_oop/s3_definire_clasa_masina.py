@@ -51,18 +51,19 @@ class Masina:
     viteza_curenta: int = 0
     este_pornita: bool = False
 
-    # definim constructorul explicit al clasei
+    # Definim constructorul explicit al clasei
+    # pentru a ne referi la atributele clasei, se va folosi <<self>>
+
+    # argumentele din __init__ <<marca, model, etc>> nu sunt identice cu field-urile din clasa, ele
+    # sunt denumite la fel tocmai pentru a scoate in evidenta diferentele dintre acestea
+    # valorile din __init__ vor veni atunci cand vom declara un obiect de tip Masina
+
+    # aici intalnim conceptul de polimorfism, despre care vom discuta la cursul urmator
+
+    # deci <<self.culoare>> se refera la variabila declarata la inceputul clasei,
+    # iar <<culoare>> din __init__ va fi valoarea pe care o primeste obiectul de tip Masina() la initializare
+
     def __init__(self, marca, model, culoare):
-        # pentru a ne referi la atributele clasei, se va folosi <<self>>
-
-        # argumentele din __init__ <<marca, model, etc>> nu sunt identice cu field-urile din clasa, ele
-        # sunt denumite la fel tocmai pentru a scoate in evidenta diferentele dintre acestea
-        # valorile din __init__ vor veni atunci cand vom declara un obiect de tip Masina
-
-        # aici intalnim conceptul de polimorfism, despre care vom discuta la cursul urmator
-
-        # deci <<self.culoare>> se refera la variabila declarata la inceputul clasei,
-        # iar <<culoare>> din __init__ va fi valoarea pe care o primeste obiectul de tip Masina() la initializare
         self.marca = marca
         self.culoare = culoare
         self.model = model
