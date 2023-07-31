@@ -346,7 +346,7 @@ for key, value in fotbalisti_pe_echipe.items():  #aici accesam echipele (cheia B
     for key_interioara, value_interioara in value.items():
         print(f'La echipa {key} joaca jucatorul: ')
         for key_jucator, value_jucator in value_interioara.items():
-            print("Detalii jucator -" f' {key_jucator}:{value_jucator}', end=", ")
+            print("Detalii jucator ", f' {key_jucator}:{value_jucator}', sep = "-", end=", ")
             # end= incheie fiecare iteratie cu elementul dorit
         print("\n")       #punem un rand gol (Enter in Word)
 
