@@ -245,7 +245,46 @@ first_name_relativ_cu_tag_cu_placeholder = driver.find_element(By.XPATH, '//inpu
  [id|="radio-button"] - selecteaza toate elementele ale caror id e egal cu sau incepe cu radio-button
 """
 
-driver.find_element(By.CSS_SELECTOR, "#first-name").clear()
+# CSS doar cu ID
+first_name_cu_id_css = driver.find_element(By.CSS_SELECTOR, "#first-name")
+
+# CSS cu tag si ID
+first_name_cu_tag_si_id = driver.find_element(By.CSS_SELECTOR, "input#first-name")
+
+# CSS cu tag si atribut = valoare
+first_name_cu_tag_si_atribut = driver.find_element(By.CSS_SELECTOR, "input[id='first-name']")
+
+# selector_element_inexistent = driver.find_element(By.CSS_SELECTOR, "input[id='inexistent']")
+
+# CSS cu clasa care contine o parte din valoarea data
+buton_submit = driver.find_element(By.CSS_SELECTOR, "a[class~='btn-primary']")
+
+# ##### Acelasi element cu CSS-uri diferite
+
+# doar cu #ID
+first_name_cu_id_css_selector = driver.find_element(By.CSS_SELECTOR, '#first-name')
+
+# tag si #ID
+first_name_cu_tag_si_id_css = driver.find_element(By.CSS_SELECTOR, 'input#first-name')
+
+# tag si ID, de data asta ca id-ul e mentionat la fel ca orice alt atribut si fara #
+first_name_cu_tag_si_atribut_id_css = driver.find_element(By.CSS_SELECTOR, 'input[id="first-name"]')
+
+# tag si atributul placeholder
+first_name_cu_tag_si_atribut_placeholder_css = driver.find_element(By.CSS_SELECTOR, 'input[placeholder="Enter first name"]')
+
+# tag cu clasa si atributul id
+first_name_cu_tag_clasa_si_id = driver.find_element(By.CSS_SELECTOR, 'input.form-control[id="first-name"]')
+
+# element cu tag-ul input si atributul type = radio
+radio_cu_atribut_type_radio = driver.find_element(By.CSS_SELECTOR, "input[type='radio']")
+
+time.sleep(3)
+
+
+driver.quit()
+
+
 
 
 
