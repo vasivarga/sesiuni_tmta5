@@ -79,11 +79,89 @@ chrome.maximize_window()
 
 #find elements returneaza o lista de elemente care au proprietatile cerute/ sunt de tipul cerut
 #daca nu identifica elemente dupa criteriile cerute va returna o lista goala
-chrome.get("https://formy-project.herokuapp.com/form")
+# chrome.get("https://formy-project.herokuapp.com/form")
+# time.sleep(2)
+# list_input = chrome.find_elements(By.XPATH,'//input[@type="text"]')
+# first_three_fields = list_input[0:3]
+# print(first_three_fields)
+# for i in range(0, len(first_three_fields)):
+#     list_input[i].send_keys("Input de la user")
+#     time.sleep(2)
+
+
+# Test 2: cautati un produs la alegere (iphone 14) si verificati ca s-au returnat cel putin 10 rezultate
+# ([class="product-title"])
+chrome.get("https://www.elefant.ro/")
 time.sleep(2)
-list_input = chrome.find_elements(By.XPATH,'//input[@type="text"]')
-first_three_fields = list_input[0:3]
-print(first_three_fields)
-for i in range(0, len(first_three_fields)):
-    list_input[i].send_keys("Input de la user")
-    time.sleep(2)
+chrome.find_element(By.ID,"CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll").click()
+time.sleep(2)
+chrome.find_element(By.XPATH,'//input[@name="SearchTerm"][1]').send_keys("Iphone 14")
+time.sleep(2)
+chrome.find_element(By.XPATH,'//button[@name="search"][1]').click()
+time.sleep(2)
+#element = "(By.XPATH, '//a[@class="product-title"]')"
+def is_element_present():
+    # lista = self.driver.find_elements(product_title)
+    # return len(lista) > 0
+    return len(chrome.find_elements(*(By.XPATH, '//a[@class="product-title"]'))) == 16
+
+assert is_element_present() == True, "Nu sunt 16 elemente"
+
+
+# - Test 5: Intrati pe site, accesati butonul cont si click pe conectare.
+# Identificati elementele de tip user si parola si inserati valori incorecte (valori incorecte inseamna oricare valori care nu sunt recunoscute drept cont valid)
+# - Dati click pe butonul "conectare" si verificati urmatoarele:
+#              1. Faptul ca nu s-a facut logarea in cont
+#             2. Faptul ca se returneaza eroarea corecta
+
+# intra pe elefant.ro
+chrome.get("https://www.elefant.ro/")
+time.sleep(2)
+# gasirea cookie popup window-ului si acceptarea lor
+chrome.find_element(By.ID, "CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll").click()
+
+# apasa pe butonul de conectare
+# chrome.find_element(By.XPATH, '//a[@class="my-account-link hidden-xs collapsed"]').click()
+chrome.find_element(By.CSS_SELECTOR,'.my-account-link.hidden-xs.collapsed').click()
+time.sleep(2)
+
+# apasa din nou pe conectare pentru a introduce user si parola
+chrome.find_element(By.XPATH, '//div[@id="account-layer"]/a[contains(text(),"Conectare")]').click()
+time.sleep(2)
+
+# introdu valori incorecte in campurile de user si password
+user = "dodoe@gmail.com"
+password = "alabalaportocala"
+user_input_field = chrome.find_element(By.ID, "ShopLoginForm_Login")
+user_input_field.send_keys(user)
+password_input_field = chrome.find_element(By.ID, "ShopLoginForm_Password")
+password_input_field.send_keys(password)
+time.sleep(2)
+
+# # apasa login
+# chrome.find_element(By.XPATH, '//button[@type="submit" and @name="login"]').click()
+# time.sleep(2)
+
+#
+# # verifica daca eroarea aparuta este corecta
+# expected_login_error = "Adresa dumneavoastră de email / Parola este incorectă. Vă rugăm să încercați din nou."
+# login_error = chrome.find_element(By.XPATH, '//div[@class="alert alert-danger"]').text
+# assert login_error == expected_login_error, "Nu apare eroarea corecta"
+# time.sleep(2)
+
+
+# - Test 6: Stergeti valoarea de pe campul email si introduceti o valoare invalida (adica fara caracterul "@")
+#           si verificati faptul ca butonul "conectare" este dezactivat
+
+user_input_field.clear()
+time.sleep(2)
+invalid_user = "dodoegmail.com"
+user_input_field.send_keys(invalid_user)
+
+# chrome.find_element(By.XPATH, '//button[@type="submit" and @name="login"]').click()
+# time.sleep(2)
+
+# verifica daca butonul de login este activ
+buton = chrome.find_element(By.XPATH, '//button[@type="submit"and @name="login"]').is_enabled()
+print(buton)
+assert buton == True, "Butonul nu este activ"
