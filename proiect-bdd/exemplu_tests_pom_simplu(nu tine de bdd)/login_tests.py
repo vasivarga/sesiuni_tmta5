@@ -2,7 +2,6 @@ import unittest
 
 from pages.login_page import LoginPage
 
-
 class LoginTests(unittest.TestCase):
 
     def test_invalid_login(self):
